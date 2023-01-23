@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+:root {
+	--bg-color-gray: #a9a9a9;
+}
+
+* {
+	box-sizing: border-box;
+ }
+
+body {
+	background-color: #ecf0f1;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	overflow: hidden;
+	margin: 0;
+}
+
+img {
+	max-width: 100%;
+}
+
+.card {
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	overflow: hidden;
+	width: 350px;
+}
+
+.card-header {
+	position: relative;
+	height: 200px;
+}
+
+.card-header .animated-bg-header {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 100%;
+	width: 100%;
+    background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+	background-size: 800px 104px;
+	animation: gradientAnimation 1.25s forwards linear infinite;
+	
+}
+
+.card-header img {
+	/* Al poner estas 3 reglas juntas, el texto ya no está encima de la img, ya que la imagen tiene dimensiones */
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+}
+
+.card-content {
+	background-color: #FFF;
+	padding: 30px;
+}
+
+.card-title {
+	height: 20px;
+	margin: 0;
+}
+
+.card-excerpt {
+	color: #777;
+	margin: 10px 0 20px;
+}
+
+.author {
+	display: flex;
+	
+}
+
+.profile-img {
+	position: relative;
+	border-radius: 50%;
+	overflow: hidden;
+	height: 40px;
+	width: 40px;
+	
+}
+
+.profile-img .animated-bg-profile {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 0;
+	height: 100%;
+	width: 100%;
+    background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+	background-size: 800px 104px;
+	animation: gradientAnimation 1.25s forwards linear infinite;
+}
+
+.author-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	margin-left: 10px;
+	/* width: 120px; */
+}
+
+
+.author-info small {
+	color: #AAA;
+	margin-top: 5px;
+}
+
+.animated-bg {
+	color: transparent !important;
+	background: var(--bg-color-gray);
+    background: linear-gradient(to right, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+	background-size: 800px 104px;
+	animation: gradientAnimation 1.25s forwards linear infinite;
+	/* animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear; */
+}
+
+  @keyframes gradientAnimation {
+	0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+  }
