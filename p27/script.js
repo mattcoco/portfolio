@@ -6,6 +6,7 @@ const messages = [
     'Message Two',
     'Message Three',
     'Message Four'
+    
 ]
 
 button.addEventListener('click', () => createNotification())
