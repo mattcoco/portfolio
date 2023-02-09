@@ -3,14 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<title>My projecto</title>
+	<title>Password strength background</title>
 </head>
 <body>
-	<h1>Project Starter</h1>
-	<h2>Subtitle</h2>
+	<div class="background" id="background"></div>
+	<div class="container">
 
+		<h1>Image Password Strength</h1>
+		<p>Change the password to see the effect</p>
+
+		<div class="input-zone">
+			<label for="email" class="text-gray-900">Email:</label>
+			<input type="text" class="border block w-full p-2 mt-2 rounded" id="email" placeholder="Enter Email">		
+		</div>
+
+		<div class="input-zone">
+			<label for="password" class="text-gray-900">Password:</label>
+			<input type="password" class="border block w-full p-2 mt-2 rounded" id="password" placeholder="Enter Password">		
+		</div>
+
+		<button class="" type="submit">Submit</button>
+	</div>
+	
 	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
