@@ -9,7 +9,7 @@
     rock: '#D5D5D4',
     fairy: '#FCEAFF',
     poison: '#d49ff4',
-    bug: '#F8D5A3',
+    bug: '#9bdeae',
     dragon: '#97B3E6',
     psychic: '#EAEDA1',
     flying: '#d4ebff',
