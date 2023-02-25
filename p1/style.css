@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	font-family: 'Muli', sans-serif;
+
+	/*los 5 importantes*/
+	display: flex; /*queremos centrar todo, simplemente porque la mayoria de proyectos estaran centrados*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*aqui podria poner flex-direction:column pero no queremos eso; queremos los elementos que se añadan en una linea*/
+	/*align items depende de flex direction. Como es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	height: 100vh; /*vh or viewport height. Poner 100vh significa "100% de la altura del navegador"*/
+	/*los 5 importantes*/
+
+	overflow: hidden; /*no queremos scrollbars shown by default*/
+	margin: 0;
+}
+
+.container {
+	display: flex; /* all the immediate children are going to be put horizontally in a row */
+	width: 90vw;
+}
+
+.panel {
+	background-size: auto 100%; /*Para no ver solo una porcion, eso hace que se vea mas de la img*/
+	background-position: center; /*alinea el centro de la caja y el centro de la img*/
+	background-repeat: no-repeat; /*no repite la img, supongo que lo hace por defecto*/
+	height: 80vh;
+	border-radius: 50px;
+	color: white;
+	cursor: pointer;
+
+	flex: 0.5; /*ahora todos mediran lo mismo*/
+	margin:10px;
+	position: relative; /*queremos poner los h3 de dentro en absolute; lo que significa que el elemento padre, el panel, tiene que ser relative*/
+	transition: flex 0.7s ease-in; /*transition in the flex property*/
+}
+
+.panel h3 {
+	font-size:24px;
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	margin: 0;
+	opacity: 0;
+}
+
+.panel.active { /*para el panel SI esta active*/
+	flex: 5;
+}
+
+.panel.active h3 {
+	opacity: 1;
+	transition: opacity 0.3s ease-in 0.4s;
+}
+
+/* También queremos que si la pantalla sea muy pequeña, que muestre solo 3 cartas y no todas*/
+/* Para eso usamos una media query*/
+
+@media (max-width: 680px) { /*para toda width con maximo 680px // es decir, para toda width inferior a 680 px*/
+	.container {
+		width: 100vw; /*antes era 90, ahora cogemos 100 para que tengamos un poco mas de espacio*/
+	}
+
+	/*usamo el :, pseudo selector. nth-of-type es el # del hijo*/
+	.panel:nth-of-type(5),
+	.panel:nth-of-type(6) {
+		display: none; /*los eliminamos*/
+	}
+
+}
