@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/*esto lo hizo después de definir la clase active*/
+/*para hacer custom properties; necesitamos una scope*/
+:root {
+ --line-border-fill: #3498db;
+ --line-border-empty: #e0e0e0;
+}
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	font-family: 'Muli', sans-serif;
+	display: flex; /*queremos centrar todo, simplemente porque la mauyoria de proyectos estaran centrados*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*align items depende de flex direction. Si es una column los alinea horizontalmente; si es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	height: 100vh; /*vh or viewport height. Poner 100vh significa "100% de la altura del navegador"*/
+	overflow: hidden; /*no queremos scrollbars shown by default*/
+	margin: 0;
+
+	background-color: #f6f7fb;
+}
+
+.container {
+	text-align: center; /* centra el texto (como en word)*/
+}
+
+.progress-container {
+	display: flex; /* ya sabes, en modo flex; las cosas se apilan horizontalmente*/
+	/*ahora separamos los elementos equitativamente*/
+	justify-content: space-between;
+	/*position relative para poner cosas dentro en absolute*/
+	position: relative;
+	margin-bottom: 30px;
+	/*el max width no sé para qué es si ya tenemos el dith debajo*/
+	max-width: 100%;
+	width: 350px;
+
+	/*puedo hacer esto para ver el tamaño de la class*/
+	/*background-color:red;*/
+}
+
+.progress-container::before {
+	/*cuando usamos before o after hay que usar content con*/
+	/* un empty string*/
+	content:'';
+	background-color: var(--line-border-empty);
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	height: 4px;
+	width: 100%;
+	z-index: -1;
+}
+
+.progress {
+	background-color: var(--line-border-fill);
+	/*position absolute within the progress container */
+	position: absolute;
+	top: 50%;
+	left: 0;
+	/* la linea no esta enta exactamente en el medio de los numeros.*/
+	/*the top of the line esta en el medio, pero queremos el medio*/
+	/* de la linea que este alineada con el medio de los numeros*/
+	/*translate Y axis - the vertical axis, y lo movemos arriba (signo -) 50%*/
+	transform: translateY(-50%);
+	height: 4px;
+	width: 0%;
+	/*queremos que la linea esté debajo de los numeros*/
+	z-index: -1;
+	/*para cuando hagamos click, para hacer la transicion*/
+	transition: .4s ease;
+}
+
+.circle {
+	background-color: #fff;
+	color: #999;
+	/*esto hace que sea redondo*/
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	/*y lo siguiente para centrar el texto dentro de los circulos kek*/
+	display: flex;
+	/*centrado vertical*/
+	align-items: center;
+	/*centrado horizontal*/
+	justify-content: center;
+	border: 3px solid var(--line-border-empty);
+	transition: .4s ease;
+}
+
+.circle.active {
+	border-color: var(--line-border-fill);
+}
+
+.btn {
+	 background-color: var(--line-border-fill);
+	 color: white;
+	 border: 0;
+	 border-radius: 6px;
+	 cursor:pointer;
+	 /*let's make sure that we inherit the font-family*/
+	 font-family: inherit;
+	 /* top and bottom 8px, 30 left and right*/
+	 padding: 8px 30px;
+	 margin: 5px;
+	 font-size: 14px;
+}
+
+.btn:active {
+	transform: scale(0.98);
+}
+
+.btn:focus {
+	/* si no ponemos esto, el navegador dejara una linea fea*/
+	/*al hacer click*/
+	outline: 0;
+}
+
+.btn:disabled {
+	background-color: var(--line-border-empty);
+	cursor: not-allowed;
+}
