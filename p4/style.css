@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	font-family: 'Roboto', sans-serif;
+	display: flex; /*queremos centrar todo, simplemente porque la mauyoria de proyectos estaran centrados*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*align items depende de flex direction. Si es una column los alinea horizontalmente; si es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	height: 100vh; /*vh or viewport height. Poner 100vh significa "100% de la altura del navegador"*/
+	overflow: hidden; /*no queremos scrollbars shown by default*/
+	margin: 0;
+	background-image: linear-gradient(90deg, #7d5fff, #7158e2);
+}
+
+
+.search {
+	position: relative;
+	height: 50px;
+}
+
+.search .input {
+	background-color:white;
+	border: 0;
+	font-size: 18px;
+	padding: 15px;
+	height: 50px;
+	width: 50px;
+	transition: width 0.3s ease;
+}
+
+.btn {
+	background-color: #fff;
+	border: 0;
+	cursor: pointer;
+	font-size: 24px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 50px;
+	transition: transform 0.3s ease;
+}
+
+.btn:focus,
+.input:focus {
+	outline:none;
+}
+
+/* selecciona la clase .input dentro de las clases*/
+/* search que tengan active */
+.search.active .input {
+	width: 200px;
+}
+/* ensanchamos la clase hija y con eso se agranda */
+/* la padre */
+
+.search.active .btn {
+	transform: translateX(198px);
+}
