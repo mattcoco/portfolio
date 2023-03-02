@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	font-family: 'Ubuntu', sans-serif;
+	display: flex; /*queremos centrar todo, simplemente porque la mauyoria de proyectos estaran centrados*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*align items depende de flex direction. Si es una column los alinea horizontalmente; si es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	height: 100vh; /*vh or viewport height. Poner 100vh significa "100% de la altura del navegador"*/
+	overflow: hidden; /*no queremos scrollbars shown by default*/
+	margin: 0;
+}
+
+.bg {
+	background: url('https://images.unsplash.com/photo-1529148482759-b35b25c5f217?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+	/* background-position: center == Center the image */
+	/* background-repeat: no-repeat == Do not repeat the image */
+	/* background-size: cover == Resize the background */
+	/* 			   image to cover the entire container */
+
+	position: absolute;
+	/* pondriamos 0px pero el blur no queda bien en los */
+	/* extremos. Por "amplia" la img 30px a los 4 lados */
+	top: -30px;
+	left: -30px;
+	width: calc(100vw + 60px);
+	height: calc(100vh + 60px);
+	/* Funcionalmente, la imagen queda igual que con: */
+	/* top: 0px;
+	left: 0px;
+	width: 100vw;
+	height: 100vh; */
+
+	z-index: -1;
+	filter: blur(0px);
+}
+
+.loading-text {
+	font-size: 50px;
+	color: white;
+}
