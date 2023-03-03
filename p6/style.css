@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	background-color: #efedd6;
+
+	font-family: 'Roboto', sans-serif;
+	display: flex; /*queremos centrar todo, simplemente porque la mauyoria de proyectos estaran centrados*/
+	flex-direction: column; /*si no ponemos esto los tags se añaden a la derecha del anterior; esto hace que vayan abajo*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*align items depende de flex direction. Si es una column los alinea horizontalmente; si es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	overflow-x: hidden;
+	/* Esto tengo que quitarlo, no permite que se muestre */
+	/* todos los divs */
+	/* height: 100vh; */
+	margin: 0;
+}
+
+h1 {
+	margin: 10px;
+}
+
+.box {
+	background-color: steelblue;
+	color:white;
+	/* display: flex solo para ponerlos verticalmente */
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	width: 400px;
+	height: 200px;
+	margin: 10px;
+	border-radius: 10px;
+	/* 2px offset H, 4px offset V, 5px blurr */
+	box-shadow: 2px 4px 5px rgba(0,0,0, 0.3);
+	/* para la animation, translateX */
+	/* 200% para que lo mueva fuera de la pantalla
+	a la derecha */
+	transform: translateX(200%);
+	transition: transform 0.4s ease;
+}
+
+/* aplicado a los hijos pares */
+.box:nth-of-type(even) {
+	transform: translateX(-200%);
+}
+
+.box.show {
+	transform: translateX(0);
+}
+
+.box h2 {
+	font-size: 45px;
+}
