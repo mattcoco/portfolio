@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	background-color: steelblue;
+	color: #fff;
+	font-family: 'Muli', sans-serif;
+	display: flex; /*queremos centrar todo, simplemente porque la mauyoria de proyectos estaran centrados*/
+	flex-direction: column; /*si no ponemos esto los tags se añaden a la derecha del anterior; esto hace que vayan abajo*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*align items depende de flex direction. Si es una column los alinea horizontalmente; si es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	height: 100vh; /*vh or viewport height. Poner 100vh significa "100% de la altura del navegador"*/
+	overflow: hidden; /*no queremos scrollbars shown by default*/
+	margin: 0;
+}
+
+.container {
+	background-color: rgba(0, 0, 0, 0.4);
+	padding: 20px 40px;
+	border-radius: 5px;
+}
+
+.container h1 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.container a {
+	text-decoration: none;
+	color: lightblue;
+}
+
+.btn {
+	cursor:pointer;
+	display: inline-block;
+	width: 100%;
+	background-color: lightblue;
+	padding: 15px;
+	font-family: inherit;
+	font-size: 16px;
+	border: 0;
+	border-radius: 5px;
+}
+
+.btn:focus {
+	outline: 0;
+}
+
+/* para un pequeño efecto de clic */
+.btn:active {
+	transform: scale(0.98);
+}
+.text {
+	margin-top: 30px;
+}
+
+
+.form-control {
+	/* for positioning labels in absolute */
+	position: relative;
+	margin: 20px 0 40px;
+	width: 300px;
+}
+.form-control input {
+	background-color: transparent;
+	border: 0;
+	border-bottom: 2px #fff solid;
+	/* esto pone email y password debajo de los inputs */
+	display: block;
+	width: 100%;
+	padding: 15px 0;
+	font-size: 18px;
+	color: #fff;
+
+}
+.form-control input:focus,
+.form-control input:valid {
+	outline: 0;
+	border-bottom-color: lightblue;
+}
+
+.form-control label {
+	position: absolute;
+	top: 15px;
+	left: 0px;
+}
+
+.form-control label span {
+	display: inline-block;
+	font-size: 18px;
+	min-width: 5px;
+	/* el efecto rebote */
+	transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span, 
+.form-control input:valid + label span {
+	color: lightblue;
+	transform: translateY(-30px);
+}
+
