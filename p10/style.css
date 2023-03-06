@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	background-color: #686de0;
+	font-family: 'Roboto', sans-serif;
+	display: flex; /*queremos centrar todo, simplemente porque la mauyoria de proyectos estaran centrados*/
+	flex-direction: column; /*si no ponemos esto los tags se añaden a la derecha del anterior; esto hace que vayan abajo*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*align items depende de flex direction. Si es una column los alinea horizontalmente; si es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	height: 100vh; /*vh or viewport height. Poner 100vh significa "100% de la altura del navegador"*/
+	overflow: hidden; /*no queremos scrollbars shown by default*/
+	margin: 0;
+	padding: 20px;
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+	/* xk dos sombras? */
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
+	0 6px 6px rgba(0,0,0,0.1);
+	padding: 50px 20px;
+	text-align:center;
+	max-width: 100%;
+	width: 800px;
+}
+
+h3 {
+	margin: 0;
+	opacity: 0.5;
+	letter-spacing: 2px;
+}
+
+.joke {
+	font-size: 30px;
+	letter-spacing: 1px;
+	line-height: 40px;
+	margin: 50px auto;
+	max-width: 600px;
+
+}
+
+.btn {
+	background-color: #9F68e0;
+	border: 0;
+	border-radius: 10px;
+	color: #fff;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1),
+	0 6px 6px rgba(0,0,0,0.1);
+	padding: 14px 40px;
+	font-size: 16px;
+	cursor: pointer;}
+
+.btn:focus{
+	outline: 0;
+}
+
+.btn:active {
+	transform: scale(0.98);
+}
