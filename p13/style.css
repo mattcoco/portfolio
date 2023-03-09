@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+	box-sizing: border-box; /*si añadimos un border o padding a un elemento no afecta su width*/
+ }
+
+body {
+	background-color: #2b88f0;
+	font-family: 'Muli', sans-serif;
+	display: flex; /*queremos centrar todo, simplemente porque la mauyoria de proyectos estaran centrados*/
+	flex-direction: column; /*si no ponemos esto los tags se añaden a la derecha del anterior; esto hace que vayan abajo*/
+	align-items: center; /* como es un flexbox podemos usar esto; esto lo centra*/
+	/*align items depende de flex direction. Si es una column los alinea horizontalmente; si es una row los alinea verticalmente*/
+	justify-content: center; /*esto lo pondra al medio de la pantalla, pero no se movera porque hasta ahora el body no tiene un height. Para ello:*/ 
+	height: 100vh; /*vh or viewport height. Poner 100vh significa "100% de la altura del navegador"*/
+	overflow: hidden; /*no queremos scrollbars shown by default*/
+	margin: 0;
+}
+
+h3 {
+	color: #fff;
+	margin: 10px 0 20px;
+	text-align: center;
+}
+
+.container {
+	width: 500px;
+}
+
+textarea {
+	border: none;
+	display: block;
+	width: 100%;
+	height: 100px;
+	font-family: inherit;
+	padding: 10px;
+	margin: 0 0 20px;
+	font-size: 16px;
+}
+
+.tag {
+	background-color: #f0932b;
+	color: #fff;
+	border-radius: 50px;
+	padding: 10px 20px;
+	margin: 0 5px 10px 0;
+	font-size: 14px;
+	display: inline-block;
+}
+
+.tag.highlight {
+	background-color: #273c75;
+}
